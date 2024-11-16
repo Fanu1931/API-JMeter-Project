@@ -1,0 +1,100 @@
+JMeter Performance Testing Framework for Petstore API
+
+Overview
+This repository contains a JMeter performance testing framework designed to test the functionality and performance of the Petstore API available at https://petstore.swagger.io/#/. The test plan automates different types of HTTP requests to validate and measure the performance of the API endpoints in various scenarios.
+
+The framework tests the following operations:
+
+Add a new pet to the pet store
+Update an existing pet
+Find a pet by ID
+Update a pet using form data
+Delete a pet
+Return pet inventories by status
+Place an order for a pet
+Find purchase order by ID
+Delete purchase order by ID
+The tests will use different HTTP methods (GET, POST, PUT, DELETE) and will be executed with varying load levels, including different numbers of threads, ramp-up times, and infinite loops to simulate real-world traffic.
+
+Tools Required
+JMeter: Performance testing tool for automating HTTP requests.
+Firefox: Used for recording test steps.
+Prerequisites
+JMeter and Firefox should be installed on your local system.
+Basic understanding of Performance Testing concepts.
+Familiarity with JMeter test plan creation and usage.
+Setup Instructions
+1. Clone the Repository
+Clone the repository to your local machine:
+
+bash
+Copy code
+git clone https://github.com/your-username/petstore-jmeter-framework.git
+2. Install JMeter
+If you haven't already installed JMeter, follow these instructions:
+
+Download the latest version of JMeter from the official website.
+Extract the downloaded file and navigate to the bin directory.
+Launch JMeter by running the jmeter.bat (for Windows) or jmeter (for macOS/Linux).
+3. Open the JMeter Project
+After downloading and extracting the JMeter project, you can open the .jmx file in JMeter:
+
+Open JMeter.
+Go to File > Open and navigate to the location of the cloned repository.
+Select the petstore_performance_test_plan.jmx file to load the test plan.
+4. Recording HTTP Requests (Optional)
+If you want to record your own HTTP requests using JMeter, follow these steps:
+
+Launch Firefox with the JMeter proxy settings.
+Go to Tools > Web Developer > Network in Firefox and ensure the browser is using JMeter as a proxy server (default is localhost:8888).
+In JMeter, add a HTTP(S) Test Script Recorder to record HTTP requests made during interactions with the Petstore API.
+After recording, save the HTTP requests in JMeter for later use.
+5. Configure Test Parameters
+Number of Threads (Virtual Users): Set the number of threads (virtual users) in the Thread Group section.
+Ramp-Up Time: Configure how quickly JMeter will ramp up the number of threads to the desired value.
+Infinite Loops: Use Forever loop in the Thread Group for infinite execution of the test.
+6. Run the Test Plan
+Once you've configured the parameters and set up the necessary HTTP requests, you can run the test by clicking the Start button in JMeter.
+
+Test Plan Structure
+The JMeter test plan is organized as follows:
+
+Test Plan: The root element containing all the test configurations and samplers.
+Thread Group: Defines the virtual users and their behavior (e.g., ramp-up time, loops).
+HTTP Request Samplers: Each sampler corresponds to a specific API endpoint and HTTP method.
+Regular Expressions: Used to extract dynamic data such as Pet IDs and Order IDs.
+Listeners: Collect and display test results. Important listeners include:
+View Results Tree: For debugging and inspecting individual requests.
+Aggregate Report: Provides an overall summary of the test results.
+Example HTTP Requests
+Add a new pet to the pet store (POST)
+Update an existing pet (PUT)
+Find pet by ID (GET)
+Delete a pet (DELETE)
+Place an order for a pet (POST)
+Find purchase order by ID (GET)
+Delete purchase order by ID (DELETE)
+7. View Results
+Use Aggregate Report to get a summary of the test run including response times, throughput, and error rates.
+You can also use Graph Results or Summary Report for additional performance metrics.
+8. Debugging
+Debug Sampler is added to inspect the flow and debug any issues that arise.
+Regular Expression Extractors are used to capture dynamic values such as pet IDs or order IDs.
+9. Example Usage
+To test the Petstore API with 10 users, 1-minute ramp-up, and infinite loops, configure the Thread Group in JMeter as follows:
+
+Number of Threads: 10
+Ramp-Up Period: 60
+Loop Count: Forever
+Execute the test plan by clicking on the Start button in the JMeter interface. Observe the results in the listeners such as View Results Tree or Aggregate Report.
+
+Submission
+Submit the JMeter project as a .jmx file and include any necessary configuration or helper files in the repository.
+Include comments in the code to explain the purpose of each section and the overall test plan structure.
+Evaluation Criteria
+Correctness: The test plan should correctly automate the specified API operations and execute without errors.
+Performance Metrics: The test should provide relevant performance metrics, such as response times, throughput, and error rates, to evaluate the API's performance under load.
+Conclusion
+This JMeter framework is designed to automate performance testing for the Petstore API. By simulating various types of HTTP requests and load patterns, the framework can be used to assess the reliability, scalability, and performance of the Petstore API under real-world conditions.
+
+
